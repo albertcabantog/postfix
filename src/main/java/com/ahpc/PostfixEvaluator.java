@@ -81,6 +81,7 @@ public class PostfixEvaluator {
 		} catch (IOException e) {
 			System.out.println("Error in writing to output file");
 			e.printStackTrace();
+			throw new IllegalArgumentException();
 		}
 		System.out.format("Done, output written to %s", outputFile);
 	}

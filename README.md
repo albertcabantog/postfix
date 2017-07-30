@@ -1,29 +1,25 @@
 # postfix
 
-Assumptions:
-1.  System data source is embedded and displayed when the program is executed
-2.  Java minium version is 1.8
-3.  Apache Maven 3.2.2 used to build the jar file
+## Assumptions and prerequisites:
+- System data source is embedded and displayed when the program is executed.  It is saved in a **Map** object where each column is the key
+and the value is a list containing each of the row
+- Java minium version is 1.8
+- Apache Maven 3.2.2 used to build the jar file
 
-Implementation details:
-The program is executable using Java 1.8.  No other third-party library was used.
+## Implementation details:
+The program expects to parse an input file containing the reference column/row cell from the data source like in a spreadsheet, number, and operands.
+The contents of the input file will be processed each line and parsed again for each value divided by the comma delimeter.
+The postfix calculation is evaluated then for each of these value by saving it in a stack which supports LIFO.
+<br>
 To run the program, generate the jar file first using maven: 
 <code>mvn clean install -DskipTests</code>
 
 Navigate to the target directory and execute the program:
 ```
 java -jar postfix-1.0.jar /tmp/input.txt /tmp/output.txt
-```
+``` 
+The output will be written in the file as provided in the second parameter.
 
-Limitations:
-1.  Current data source only support columns A to C and rows 1 to 5 only (A1..C5)
-<br>
-| A  | B | C |
-|--- |---|---|
-|1 |6|11|
-|2 |7|12|
-|3 |8|13|
-|4 |9|14|
-|5 |10|15|
-<br>
-2.  CSV input file supports cell value of whole number only
+## Limitations:
+- Current data source has a limited value of columns A to C and rows 1 to 5 (A1..C5)
+- CSV input file can only have whole number if it is not the column/row from the data source or an operand
