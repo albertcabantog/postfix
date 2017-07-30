@@ -3,12 +3,12 @@
 ## Assumptions and prerequisites:
 - System data source is embedded and displayed when the program is executed.  It is saved in a **Map** object where each column is the key
 and the value is a list containing each of the row
-- Java minium version is 1.8
+- Java minimum version is 1.8
 - Apache Maven 3.2.2 used to build the jar file
 
 ## Implementation details:
 The program expects to parse an input file containing the reference column/row cell from the data source like in a spreadsheet, number, and operands.
-The contents of the input file will be processed each line and parsed again for each value divided by the comma delimeter.
+The contents of the input file will be processed each line and parsed again for each value divided by the comma delimiter.
 The postfix calculation is evaluated then for each of these value by saving it in a stack which supports LIFO.
 <br>
 To run the program, generate the jar file first using maven: 
